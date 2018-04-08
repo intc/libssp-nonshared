@@ -1,0 +1,20 @@
+
+libssp_nonshared
+----------------
+
+libssp_nonshared is minimalistic static library with one function:
+__stack_chk_fail_local(void) { __stack_chk_fail(); }
+
+This will allow using SSP on i686 architecture while using musl libc.
+
+Note: gcc has to be pached in order this to work!
+
+There is a gcc ebuild in fenno-musl overlay which will apply the
+gcc patch. gcc modification was originally spotted here:
+* https://gcc.gnu.org/ml/gcc/2012-01/msg00012.html
+
+Alpine Linux version of this code is integrated to musl Pakcage and
+was seen here
+* https://git.alpinelinux.org/cgit/aports/tree/main/musl/__stack_chk_fail_local.c?id=d307f133de1f8a9993ab0d6fd51176b9373df4c3
+
+Created by Antti Antinoja / Fennosys / 20180408
