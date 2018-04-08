@@ -11,24 +11,24 @@ CFLAGS = -Wall @CFLAGS@ ${DEBUG} ${DEFINES}
 SOURCES = __stack_chk_fail_local.c
 OBJS = __stack_chk_fail_local.o
 APR_MKDIR = mkdir -p
-all: libssp_noshared.a
+all: libssp_nonshared.a
 
-libssp_noshared.o: $(SOURCES)
+libssp_nonshared.o: $(SOURCES)
 	$(CC) $(CFLAGS) -c -o $@ $^ $(LDFLAGS)
 
-libssp_noshared.a: $(OBJS)
+libssp_nonshared.a: $(OBJS)
 	ar r $@ $<
 
 .PHONY: clean clean-all install
 clean:
-	rm -f *.o libssp_noshared.a
+	rm -f *.o libssp_nonshared.a
 
 clean-all:
-	rm -f libssp_noshared.a *.o configure config.* Makefile
+	rm -f libssp_nonshared.a *.o configure config.* Makefile
 	rm -rf autom4te.cache
 
-install: libssp_noshared.a
+install: libssp_nonshared.a
 	$(APR_MKDIR) $(DESTDIR)$(LIBDIR)
-	install -o root -g root -m 0444 -s libssp_noshared.a $(DESTDIR)$(LIBDIR)
+	install -o root -g root -m 0444 -s libssp_nonshared.a $(DESTDIR)$(LIBDIR)
 
 
