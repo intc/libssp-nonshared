@@ -31,4 +31,4 @@ install: libssp_nonshared.a
 	$(APR_MKDIR) $(DESTDIR)$(LIBDIR)
 	install -o root -g root -m 0444 libssp_nonshared.a $(DESTDIR)$(LIBDIR)
 	strip --strip-unneeded -R .comment -R .GCC.command.line -R .note.gnu.gold-version \
-		$(DESTDIR)$(LIBDIR)libssp_nonshared.a
+		$(DESTDIR)$(LIBDIR)/libssp_nonshared.a
