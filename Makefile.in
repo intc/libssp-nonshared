@@ -6,7 +6,8 @@ PREFIX = @prefix@
 LIBDIR = @prefix@/lib
 
 DEFINES = -DHAVE_CONFIG_H ${VERSION}
-CFLAGS = -Wall @CFLAGS@ ${DEBUG} ${DEFINES}
+#CFLAGS = -Wall @CFLAGS@ ${DEBUG} ${DEFINES}
+CFLAGS = -Wall ${DEBUG} ${DEFINES}
 
 SOURCES = __stack_chk_fail_local.c
 OBJS = __stack_chk_fail_local.o
@@ -17,7 +18,7 @@ libssp_nonshared.o: $(SOURCES)
 	$(CC) $(CFLAGS) -c -o $@ $^ $(LDFLAGS)
 
 libssp_nonshared.a: $(OBJS)
-	ar rcs $@ $<
+	ar r $@ $<
 
 .PHONY: clean clean-all install
 clean:
