@@ -17,7 +17,7 @@ libssp_nonshared.o: $(SOURCES)
 	$(CC) $(CFLAGS) -c -o $@ $^ $(LDFLAGS)
 
 libssp_nonshared.a: $(OBJS)
-	ar r $@ $<
+	ar -r -c -s $@ $<
 
 .PHONY: clean clean-all install
 clean:
