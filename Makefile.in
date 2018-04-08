@@ -10,7 +10,7 @@ CFLAGS = -Wall @CFLAGS@ ${DEBUG} ${DEFINES}
 
 SOURCES = __stack_chk_fail_local.c
 OBJS = __stack_chk_fail_local.o
-APR_MKDIR = mkdir
+APR_MKDIR = mkdir -p
 all: libssp_noshared.a
 
 libssp_noshared.o: $(SOURCES)
