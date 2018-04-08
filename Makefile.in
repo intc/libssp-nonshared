@@ -27,7 +27,8 @@ clean-all:
 	rm -f libssp_noshared.a *.o configure config.* Makefile
 	rm -rf autom4te.cache
 
-install:
+install: libssp_noshared.a
+	$(APR_MKDIR) $(DESTDIR)$(LIBDIR)
 	install -o root -g root -m 0444 -s libssp_noshared.a $(DESTDIR)$(LIBDIR)
 
 
